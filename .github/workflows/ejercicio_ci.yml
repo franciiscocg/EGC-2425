@@ -8,10 +8,11 @@ on:
 jobs:
   pytest:
     runs-on: ubuntu-latest
-    matrix:
-      version:
-        - 5.7
-        - 8.0
+    example_matrix:
+      strategy:
+        matrix:
+          version: [5.7, 8.0]
+
     services:
       mysql:
         image: mysql:${{ matrix.version }}
